@@ -1,0 +1,51 @@
+ALTER TABLE `tblafrica`  ENGINE = MyISAM;
+ALTER TABLE `tblasia`  ENGINE = MyISAM ;
+ALTER TABLE `tblauz`  ENGINE = MyISAM ;
+ALTER TABLE `tblcruises`  ENGINE = MyISAM ;
+ALTER TABLE `tblfareast`  ENGINE = MyISAM ;
+ALTER TABLE `tblmiddleeast`  ENGINE = MyISAM ;
+ALTER TABLE `tblpackages`  ENGINE = MyISAM ;
+ALTER TABLE `tblspecials`  ENGINE = MyISAM ;
+ALTER TABLE `tblimages`  ENGINE = MyISAM ;
+ALTER TABLE `pma_bookmark`  ENGINE = MyISAM;
+ALTER TABLE `pma_column_info`  ENGINE = MyISAM;
+ALTER TABLE `pma_designer_coords`  ENGINE = MyISAM;
+ALTER TABLE `pma_history`  ENGINE = MyISAM;
+ALTER TABLE `pma_pdf_pages`  ENGINE = MyISAM;
+ALTER TABLE `pma_relation`  ENGINE = MyISAM;
+ALTER TABLE `pma_table_coords`  ENGINE = MyISAM;
+ALTER TABLE `pma_table_info`  ENGINE = MyISAM;
+
+ALTER TABLE `tblasia` DROP `image_ID`;
+ALTER TABLE `tblauz` DROP `image_ID`;
+ALTER TABLE `tblcruises` DROP `image_ID`;
+ALTER TABLE `tblfareast` DROP `image_ID`;
+ALTER TABLE `tblmiddleeast` DROP `image_ID`;
+ALTER TABLE `tblpackages` DROP `image_ID`;
+ALTER TABLE `tblspecials` DROP `image_ID`;
+ALTER TABLE `tblasia` ADD `img1` INT NOT NULL , ADD `img2` INT NOT NULL , ADD `img3` INT NOT NULL , ADD `img4` INT NOT NULL;
+ALTER TABLE `tblauz` ADD `img1` INT NOT NULL , ADD `img2` INT NOT NULL , ADD `img3` INT NOT NULL , ADD `img4` INT NOT NULL;
+ALTER TABLE `tblcruises` ADD `img1` INT NOT NULL , ADD `img2` INT NOT NULL , ADD `img3` INT NOT NULL , ADD `img4` INT NOT NULL;
+ALTER TABLE `tblfareast` ADD `img1` INT NOT NULL , ADD `img2` INT NOT NULL , ADD `img3` INT NOT NULL , ADD `img4` INT NOT NULL;
+ALTER TABLE `tblmiddleeast` ADD `img1` INT NOT NULL , ADD `img2` INT NOT NULL , ADD `img3` INT NOT NULL , ADD `img4` INT NOT NULL;
+ALTER TABLE `tblpackages` ADD `img1` INT NOT NULL , ADD `img2` INT NOT NULL , ADD `img3` INT NOT NULL , ADD `img4` INT NOT NULL;
+ALTER TABLE `tblspecials` ADD `img1` INT NOT NULL , ADD `img2` INT NOT NULL , ADD `img3` INT NOT NULL , ADD `img4` INT NOT NULL;
+
+
+RENAME TABLE `visaline`.`tblafrica`  TO `visaline`.`1` ;
+RENAME TABLE `visaline`.`tblasia`  TO `visaline`.`2` ;
+RENAME TABLE `visaline`.`tblauz`  TO `visaline`.`3` ;
+RENAME TABLE `visaline`.`tblcruises`  TO `visaline`.`4` ;
+RENAME TABLE `visaline`.`tblfareast`  TO `visaline`.`5` ;
+RENAME TABLE `visaline`.`tblmiddleeast`  TO `visaline`.`6` ;
+RENAME TABLE `visaline`.`tblpackages`  TO `visaline`.`7` ;
+RENAME TABLE `visaline`.`tblspecials`  TO `visaline`.`8` ;
+
+RENAME TABLE `visaline`.`1`  TO `visaline`.`tblAfrica` ;
+RENAME TABLE `visaline`.`2`  TO `visaline`.`tblAsia` ;
+RENAME TABLE `visaline`.`3`  TO `visaline`.`tblAuz` ;
+RENAME TABLE `visaline`.`4`  TO `visaline`.`tblCruises` ;
+RENAME TABLE `visaline`.`5`  TO `visaline`.`tblFarEast` ;
+RENAME TABLE `visaline`.`6`  TO `visaline`.`tblMiddleEast` ;
+RENAME TABLE `visaline`.`7`  TO `visaline`.`tblPackages` ;
+RENAME TABLE `visaline`.`8`  TO `visaline`.`tblSpecials` ;
