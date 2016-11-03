@@ -60,8 +60,8 @@
 				include '../dbConnect.php';
 				
 				$query = "SELECT * FROM tblNews WHERE News_ID = '".$_GET['News_ID']."'";
-				$result = mysql_query($query);
-				$search = mysql_fetch_array($result);
+				$result = mysqli_query($connection, $query);
+				$search = mysqli_fetch_array($result);
 				
 				echo '<form id="enquiry" name="frmEditNews" method="post" action="submitNewsChanges.php" onSubmit="return enquiryFieldValidate()" >';
 				echo '	<table id="enquiryForm">';

@@ -49,7 +49,7 @@
 			
 			function printOffers($region)
 			{
-				$query = mysql_query("SELECT * FROM tbl".$region." ORDER BY `Rank` ASC");
+				$query = mysqli_query($connection, "SELECT * FROM tbl".$region." ORDER BY `Rank` ASC");
 				
 				echo '<h1>'.$region.'</h1><br />';
 				
@@ -67,7 +67,7 @@
 				
 				$rowNum = 1;
 				
-				while ($search = mysql_fetch_array($query))
+				while ($search = mysqli_fetch_array($query))
 				{
 					
 					if ($rowNum == 1)

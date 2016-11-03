@@ -40,7 +40,7 @@
 		
 		$query = "SELECT * FROM ".$_GLOBALS['tblName']." WHERE Offer_ID =".$_GET['offerID'];
 		
-		$result = mysql_query($query);
+		$result = mysqli_query($connection, $query);
 				
 		$search = mysql_fetch_assoc($result);
 		
@@ -167,7 +167,7 @@
 				<?php
 					include 'dbConnect.php';
 					
-					$result = mysql_query("SELECT * FROM ".$_GLOBALS['tblName']." WHERE Offer_ID =".$_GET['offerID']);
+					$result = mysqli_query($connection, "SELECT * FROM ".$_GLOBALS['tblName']." WHERE Offer_ID =".$_GET['offerID']);
 						
 					$search = mysql_fetch_assoc($result);
 					
@@ -222,13 +222,13 @@
 				<?php
 					include 'dbConnect.php';
 					
-					$result = mysql_query("SELECT * FROM ".$_GLOBALS['tblName']." WHERE Offer_ID =".$_GET['offerID']);
+					$result = mysqli_query($connection, "SELECT * FROM ".$_GLOBALS['tblName']." WHERE Offer_ID =".$_GET['offerID']);
 					$search = mysql_fetch_assoc($result);
 					
-					$img1URLsearch = mysql_fetch_assoc(mysql_query("SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img1']));
-					$img2URLsearch = mysql_fetch_assoc(mysql_query("SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img2']));
-					$img3URLsearch = mysql_fetch_assoc(mysql_query("SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img3']));
-					$img4URLsearch = mysql_fetch_assoc(mysql_query("SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img4']));
+					$img1URLsearch = mysql_fetch_assoc(mysqli_query($connection, "SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img1']));
+					$img2URLsearch = mysql_fetch_assoc(mysqli_query($connection, "SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img2']));
+					$img3URLsearch = mysql_fetch_assoc(mysqli_query($connection, "SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img3']));
+					$img4URLsearch = mysql_fetch_assoc(mysqli_query($connection, "SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img4']));
 					
 					echo '<div id="mainImage">';
 					

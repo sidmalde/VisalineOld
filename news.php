@@ -54,12 +54,12 @@
 				echo "<h2>Latest News</h2><br /><br />\n";
 				include 'dbConnect.php';
 				
-				$result = mysql_query("SELECT * FROM tblNews ORDER BY News_ID ASC");
+				$result = mysqli_query($connection, "SELECT * FROM tblNews ORDER BY News_ID ASC");
 				
 				if (mysql_num_rows($result) != 0)
 				{
 					$i = 1;
-					while ($search = mysql_fetch_array($result))
+					while ($search = mysqli_fetch_array($result))
 					{
 						echo '<ul>'."\n";
 						echo $i.".&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";

@@ -6,7 +6,7 @@
 	include '../dbConnect.php';
 	
 	$query = 'DELETE FROM tbl'.$_GET['region'].' WHERE Offer_ID='.$_GET['offerID'];
-	mysql_query($query);
+	mysqli_query($connection, $query);
 	
 	header("location: editOffer.php");
 	

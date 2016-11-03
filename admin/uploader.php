@@ -34,17 +34,17 @@
 	$endDate = $_POST['End_Date'];
 
 
-	$rankCheckQuery = mysql_query("SELECT * FROM tbl".$_POST['Region']." ORDER BY `Rank` ASC");
+	$rankCheckQuery = mysqli_query($connection, "SELECT * FROM tbl".$_POST['Region']." ORDER BY `Rank` ASC");
 
 	$rank = $_POST['Rank'];
-	while ($search = mysql_fetch_array($rankCheckQuery))
+	while ($search = mysqli_fetch_array($rankCheckQuery))
 	{
 		if ($rank == $search['Rank'])
 		{
 			$rank++;
 			$query  = "UPDATE tbl".$_POST['Region']." SET Rank=".$rank." WHERE Offer_ID=".$search['Offer_ID']." LIMIT 1";
 			//echo $query.'<br />';
-			mysql_query($query);
+			mysqli_query($connection, $query);
 		}
 	}
 
@@ -56,7 +56,7 @@
 
 	$query = "INSERT INTO tbl".$_POST['Region']." (Offer_ID, Creation_Date, Reference, Rank, Offer_Name, Details, Keywords, Start_Date, End_Date, Price, img1, img2, img3, img4) VALUES (NULL, CURRENT_TIMESTAMP, '".$_POST['Reference']."', '".$_POST['Rank']."', '".$newOfferName."', '".$newDetails."', '".$_POST['Keywords']."', '".$startDate."', '".$endDate."', '".$_POST['Price']."', '".$img1ID."', '".$img2ID."', '".$img3ID."', '".$img4ID."')";
 
-	if( mysql_query($query))
+	if( mysqli_query($connection, $query))
 	{
 		header("location: home.php");
 		exit;
@@ -66,18 +66,18 @@
 
 	function checkPresence($url)
 	{
-		$result = mysql_query("SELECT * FROM tblImages WHERE url='".$url."'");
+		$result = mysqli_query($connection, "SELECT * FROM tblImages WHERE url='".$url."'");
 		$search = null;
 		
 		if (mysql_num_rows($result)==0)
 		{	
-			mysql_query("INSERT INTO tblImages (image_ID, url) VALUES (NULL, '".$url."')");
-			$result = mysql_query("SELECT * FROM tblImages WHERE url='".$url."'");
-			$search = mysql_fetch_array($result);
+			mysqli_query($connection, "INSERT INTO tblImages (image_ID, url) VALUES (NULL, '".$url."')");
+			$result = mysqli_query($connection, "SELECT * FROM tblImages WHERE url='".$url."'");
+			$search = mysqli_fetch_array($result);
 		}
 		else
 		{
-			$search = mysql_fetch_array($result);
+			$search = mysqli_fetch_array($result);
 		}
 		
 		return $search['image_ID'];

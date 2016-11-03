@@ -5,7 +5,7 @@
 	$query = "INSERT INTO tblNews (News_ID, Title, Details) VALUES (NULL, '".$_POST['Title']."', '".$_POST['Details']."')";
 	
 	echo $query;
-	mysql_query($query);
+	mysqli_query($connection, $query);
 	
 	
 	mysql_close($connection);

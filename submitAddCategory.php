@@ -9,7 +9,7 @@
 	// Save to DB - never lost	
 	$query = "INSERT into tblcategories VALUES( NULL, '".$category."', '".$href."', '".$title."', '".$keywords."')";
 	echo $query;
-	mysql_query($query) or die(mysql_error());
+	mysqli_query($connection, $query) or die(mysql_error());
 	
 	header("location: addCategory.php");
 	

@@ -148,7 +148,7 @@
 				
 				include 'dbConnect.php';
 				
-				$result = mysql_query("SELECT * FROM ".$_GLOBALS['tblName']." ORDER BY `Rank` ASC");
+				$result = mysqli_query($connection, "SELECT * FROM ".$_GLOBALS['tblName']." ORDER BY `Rank` ASC");
 				
 				if (mysql_num_rows($result) != 0)
 				{
@@ -163,7 +163,7 @@
 					echo '<th>End Date</th>'."\n";
 					echo '</tr>'."\n";
 					
-					while ($search = mysql_fetch_array($result))
+					while ($search = mysqli_fetch_array($result))
 					{
 						$offerName = $search['Offer_Name'];
 						if (strlen($offerName) >= 59)

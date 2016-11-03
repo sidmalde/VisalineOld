@@ -45,7 +45,7 @@
 			
 				include '../dbConnect.php';
 				
-				$query = mysql_query("SELECT * FROM tblNews");
+				$query = mysqli_query($connection, "SELECT * FROM tblNews");
 				
 				echo '<h1>NEWS</h1><br />';
 				
@@ -58,7 +58,7 @@
 
 				$rowNum = 1;
 				
-				while ($search = mysql_fetch_array($query))
+				while ($search = mysqli_fetch_array($query))
 				{
 					if ($rowNum == 1)
 					{

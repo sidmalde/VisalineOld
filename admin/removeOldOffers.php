@@ -23,14 +23,14 @@
 	function removeOldOffers($tbl, $currentDate)
 	{
 		$count=0;
-		$result = mysql_query("SELECT * FROM ".$tbl);
-		while ($search = mysql_fetch_array($result))
+		$result = mysqli_query($connection, "SELECT * FROM ".$tbl);
+		while ($search = mysqli_fetch_array($result))
 		{
 			$endDate = splitDate($search['End_Date']);
 			
 			if ($currentDate[2] > $endDate[2])
 			{
-				mysql_query("DELETE FROM ".$tbl." WHERE Offer_ID ='".$search['Offer_ID']."' LIMIT 1");
+				mysqli_query($connection, "DELETE FROM ".$tbl." WHERE Offer_ID ='".$search['Offer_ID']."' LIMIT 1");
 				$count++;
 			}
 			else
@@ -39,7 +39,7 @@
 				{
 					if ($currentDate[1] > $endDate[1])
 					{
-						mysql_query("DELETE FROM ".$tbl." WHERE Offer_ID ='".$search['Offer_ID']."' LIMIT 1");
+						mysqli_query($connection, "DELETE FROM ".$tbl." WHERE Offer_ID ='".$search['Offer_ID']."' LIMIT 1");
 						$count++;
 					}
 					else
@@ -48,7 +48,7 @@
 						{
 							if ($currentDate[0] > $endDate[0])
 							{
-								mysql_query("DELETE FROM ".$tbl." WHERE Offer_ID ='".$search['Offer_ID']."' LIMIT 1");
+								mysqli_query($connection, "DELETE FROM ".$tbl." WHERE Offer_ID ='".$search['Offer_ID']."' LIMIT 1");
 								$count++;
 							}
 						}
