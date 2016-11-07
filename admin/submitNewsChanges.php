@@ -6,7 +6,7 @@
 		
 	mysqli_query($connection, $query);
 	
-	mysql_close($connection);
+	mysqli_close($connection);
 	
 	header("location: editNews.php");
 	

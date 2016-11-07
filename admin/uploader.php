@@ -19,16 +19,16 @@
 	$img4ID = 0;
 
 	if(move_uploaded_file($_FILES['image1']['tmp_name'], $target_path_1))
-		$img1ID = checkPresence("images/offerImages/".basename($_FILES['image1']['name']));
+		$img1ID = checkPresence("images/offerImages/".basename($_FILES['image1']['name']), $connection);
 
 	if(move_uploaded_file($_FILES['image2']['tmp_name'], $target_path_2))
-		$img2ID = checkPresence("images/offerImages/".basename($_FILES['image2']['name']));
+		$img2ID = checkPresence("images/offerImages/".basename($_FILES['image2']['name']), $connection);
 
 	if(move_uploaded_file($_FILES['image3']['tmp_name'], $target_path_3))
-		$img3ID = checkPresence("images/offerImages/".basename($_FILES['image3']['name']));
+		$img3ID = checkPresence("images/offerImages/".basename($_FILES['image3']['name']), $connection);
 
 	if(move_uploaded_file($_FILES['image4']['tmp_name'], $target_path_4))
-		$img4ID = checkPresence("images/offerImages/".basename($_FILES['image4']['name']));
+		$img4ID = checkPresence("images/offerImages/".basename($_FILES['image4']['name']), $connection);
 
 	$startDate = $_POST['Start_Date'];
 	$endDate = $_POST['End_Date'];
@@ -64,12 +64,12 @@
 	else
 		echo "Error Uploading Offer";
 
-	function checkPresence($url)
+	function checkPresence($url, $connection)
 	{
 		$result = mysqli_query($connection, "SELECT * FROM tblImages WHERE url='".$url."'");
 		$search = null;
 		
-		if (mysql_num_rows($result)==0)
+		if (mysqli_num_rows($result)==0)
 		{	
 			mysqli_query($connection, "INSERT INTO tblImages (image_ID, url) VALUES (NULL, '".$url."')");
 			$result = mysqli_query($connection, "SELECT * FROM tblImages WHERE url='".$url."'");

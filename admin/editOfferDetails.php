@@ -85,7 +85,7 @@
 				
 				$query = 'SELECT * FROM tbl'.$_GET['region'].' WHERE Offer_ID='.$_GET['offerID'];
 				
-				$search = mysql_fetch_assoc(mysqli_query($connection, $query));				
+				$search = mysqli_fetch_assoc(mysqli_query($connection, $query));				
 								
 				echo '<form id="enquiry" name="frmAddOffer" method="post" enctype="multipart/form-data" action="submitChanges.php" onSubmit="return enquiryFieldValidate()" >';
 				echo '	<input type="hidden" name="MAX_FILE_SIZE" value="100000000" />';
