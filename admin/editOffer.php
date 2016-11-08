@@ -38,16 +38,16 @@
 			
 			include '../dbConnect.php';
 			
-			printOffers("Africa");
-			printOffers("Asia");
-			printOffers("FarEast");
-			printOffers("MiddleEast");
-			printOffers("Auz");
-			printOffers("Packages");
-			printOffers("Cruises");
-			printOffers("Specials");
+			printOffers("Africa", $connection);
+			printOffers("Asia", $connection);
+			printOffers("FarEast", $connection);
+			printOffers("MiddleEast", $connection);
+			printOffers("Auz", $connection);
+			printOffers("Packages", $connection);
+			printOffers("Cruises", $connection);
+			printOffers("Specials", $connection);
 			
-			function printOffers($region)
+			function printOffers($region, $connection)
 			{
 				$query = mysqli_query($connection, "SELECT * FROM tbl".$region." ORDER BY `Rank` ASC");
 				
