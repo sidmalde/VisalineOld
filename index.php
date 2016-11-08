@@ -106,29 +106,29 @@
 						echo '</div>'."\n";
 					}
 
-					$result = mysqli_query("SELECT Offer_ID, Offer_Name, Price FROM `tblAfrica` ORDER BY `Rank` ASC LIMIT 12");
-					checkAndPrint("Africa", "Wild Africa", $result, $connection);
+					$result = mysqli_query($connection, "SELECT Offer_ID, Offer_Name, Price FROM `tblAfrica` ORDER BY `Rank` ASC LIMIT 12");
+					checkAndPrint("Africa", "Wild Africa", $result);
 						
-					$result = mysqli_query("SELECT Offer_ID, Offer_Name, Price FROM `tblAsia` ORDER BY `Rank` ASC LIMIT 12");
-					checkAndPrint("Asia", "Spicy Asia", $result, $connection);
+					$result = mysqli_query($connection, "SELECT Offer_ID, Offer_Name, Price FROM `tblAsia` ORDER BY `Rank` ASC LIMIT 12");
+					checkAndPrint("Asia", "Spicy Asia", $result);
 
-					$result = mysqli_query("SELECT Offer_ID, Offer_Name, Price FROM `tblFarEast` ORDER BY `Rank` ASC LIMIT 12");
-					checkAndPrint("FarEast", "Far East", $result, $connection);
+					$result = mysqli_query($connection, "SELECT Offer_ID, Offer_Name, Price FROM `tblFarEast` ORDER BY `Rank` ASC LIMIT 12");
+					checkAndPrint("FarEast", "Far East", $result);
 
-					$result = mysqli_query("SELECT Offer_ID, Offer_Name, Price FROM `tblMiddleEast` ORDER BY `Rank` ASC LIMIT 12");
-					checkAndPrint("MiddleEast", "Middle East", $result, $connection);
+					$result = mysqli_query($connection, "SELECT Offer_ID, Offer_Name, Price FROM `tblMiddleEast` ORDER BY `Rank` ASC LIMIT 12");
+					checkAndPrint("MiddleEast", "Middle East", $result);
 
-					$result = mysqli_query("SELECT Offer_ID, Offer_Name, Price FROM `tblAuz` ORDER BY `Rank` ASC LIMIT 12");
-					checkAndPrint("Auz", "Australia &amp; New Zealand", $result, $connection);
+					$result = mysqli_query($connection, "SELECT Offer_ID, Offer_Name, Price FROM `tblAuz` ORDER BY `Rank` ASC LIMIT 12");
+					checkAndPrint("Auz", "Australia &amp; New Zealand", $result);
 
-					/*$result = mysqli_query("SELECT Offer_ID, Offer_Name, Price FROM `tblPackages` ORDER BY `Rank` ASC LIMIT 12");
-					checkAndPrint("Packages", "Packages", $result, $connection);
+					/*$result = mysqli_query($connection, "SELECT Offer_ID, Offer_Name, Price FROM `tblPackages` ORDER BY `Rank` ASC LIMIT 12");
+					checkAndPrint("Packages", "Packages", $result);
 
-					$result = mysqli_query("SELECT Offer_ID, Offer_Name, Price FROM `tblCruises` ORDER BY `Rank` ASC LIMIT 12");
-					checkAndPrint("Cruises", "Cruises", $result, $connection);*/
+					$result = mysqli_query($connection, "SELECT Offer_ID, Offer_Name, Price FROM `tblCruises` ORDER BY `Rank` ASC LIMIT 12");
+					checkAndPrint("Cruises", "Cruises", $result);*/
 
-					$result = mysqli_query("SELECT Offer_ID, Offer_Name, Price FROM `tblSpecials` ORDER BY `Rank` ASC LIMIT 12");
-					checkAndPrint("Specials", "More Specials", $result, $connection);
+					$result = mysqli_query($connection, "SELECT Offer_ID, Offer_Name, Price FROM `tblSpecials` ORDER BY `Rank` ASC LIMIT 12");
+					checkAndPrint("Specials", "More Specials", $result);
 
 				?>
 				
