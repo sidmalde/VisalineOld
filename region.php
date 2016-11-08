@@ -150,7 +150,7 @@
 				
 				$result = mysqli_query($connection, "SELECT * FROM ".$_GLOBALS['tblName']." ORDER BY `Rank` ASC");
 				
-				if (mysql_num_rows($result) != 0)
+				if (mysqli_num_rows($result) != 0)
 				{
 					echo '<table id="regionOffers">'."\n";
 					

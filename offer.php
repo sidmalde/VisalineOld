@@ -42,7 +42,7 @@
 		
 		$result = mysqli_query($connection, $query);
 				
-		$search = mysql_fetch_assoc($result);
+		$search = mysqli_fetch_assoc($result);
 		
 		if (!isset($_GET["region"]))
 		{
@@ -57,7 +57,7 @@
 			echo " Visaline Travel - ".$search['Offer_Name'];
 		}
 		
-		mysql_close($connection);
+		mysqli_close($connection);
 	?>
 </title>
 <meta name="keywords" content="visaline, cheap, deals, flights, travel, packages, special offers, india, kenya, asia, africa, middle east, far east" />
@@ -169,7 +169,7 @@
 					
 					$result = mysqli_query($connection, "SELECT * FROM ".$_GLOBALS['tblName']." WHERE Offer_ID =".$_GET['offerID']);
 						
-					$search = mysql_fetch_assoc($result);
+					$search = mysqli_fetch_assoc($result);
 					
 					$dateStart = $search['Start_Date'];
 					$dateEnd =  $search['End_Date'];
@@ -223,12 +223,12 @@
 					include 'dbConnect.php';
 					
 					$result = mysqli_query($connection, "SELECT * FROM ".$_GLOBALS['tblName']." WHERE Offer_ID =".$_GET['offerID']);
-					$search = mysql_fetch_assoc($result);
+					$search = mysqli_fetch_assoc($result);
 					
-					$img1URLsearch = mysql_fetch_assoc(mysqli_query($connection, "SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img1']));
-					$img2URLsearch = mysql_fetch_assoc(mysqli_query($connection, "SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img2']));
-					$img3URLsearch = mysql_fetch_assoc(mysqli_query($connection, "SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img3']));
-					$img4URLsearch = mysql_fetch_assoc(mysqli_query($connection, "SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img4']));
+					$img1URLsearch = mysqli_fetch_assoc(mysqli_query($connection, "SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img1']));
+					$img2URLsearch = mysqli_fetch_assoc(mysqli_query($connection, "SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img2']));
+					$img3URLsearch = mysqli_fetch_assoc(mysqli_query($connection, "SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img3']));
+					$img4URLsearch = mysqli_fetch_assoc(mysqli_query($connection, "SELECT `url` FROM `tblImages` WHERE image_ID = ".$search['img4']));
 					
 					echo '<div id="mainImage">';
 					
