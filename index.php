@@ -81,7 +81,7 @@
 
                                         include 'dbConnect.php';
 
-                                        function checkAndPrint($region, $text, $result, $connection)
+                                        function checkAndPrint($region, $text, $result)
                                         {
                                                 echo '<div id="offers'.$region.'">'."\n";
                                                 echo '<h3><a href="region.php?region='.$region.'" class="regionOfferHeader" onmouseover="roll_over(\'\', \'\', \'banner'.$region.'\')" onmouseout="roll_over(\'\', \'\', \'bannerHome\')">'.$text.'</a></h3>'."\n";
