@@ -32,11 +32,55 @@ $this->layout = false;
 <body>
     <h1>Decode CSR</h1>
 
-    <?= $this->Form->create(null); ?>
-    <?= $this->Form->input('csr', ['type' => 'textarea', 'rows' => 15, 'cols' => 75]); ?>
-    <br>
-    <br>
-    <?= $this->Form->submit('Decode CSR'); ?>
-    <?= $this->Form->end(); ?>
+    <div class="row">
+        <div class="col-md-6">
+            <?= $this->Form->create(null); ?>
+            <?= $this->Form->input('csr', ['type' => 'textarea', 'rows' => 15, 'cols' => 75]); ?>
+            <br>
+            <br>
+            <?= $this->Form->submit('Decode CSR'); ?>
+            <?= $this->Form->end(); ?>
+        </div>
+        <div class="col-md-6">
+            <?php if(!empty($decodedCsr)): ?>
+                <div class="decoded-csr-block">
+                    <table>
+                        <tr>
+                            <th>Common name</th>
+                            <td><?= @$decodedCsr->CommonName; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Key Algorithm</th>
+                            <td><?= @$decodedCsr->KeyAlgorithm; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Key Size</th>
+                            <td><?= @$decodedCsr->KeySize; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Organization</th>
+                            <td><?= @$decodedCsr->Organization; ?></td>
+                        </tr>
+                        <tr>
+                            <th>OU</th>
+                            <td><?= @$decodedCsr->OrganizationUnit; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Locality</th>
+                            <td><?= @$decodedCsr->Locality; ?></td>
+                        </tr>
+                        <tr>
+                            <th>State</th>
+                            <td><?= @$decodedCsr->State; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Country</th>
+                            <td><?= @$decodedCsr->Country; ?></td>
+                        </tr>
+                    </table>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
 </body>
 </html>

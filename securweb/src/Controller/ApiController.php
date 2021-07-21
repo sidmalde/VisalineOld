@@ -92,7 +92,7 @@ ZCFuv6ibYdWBLlxqd1EuQhfLcTlOBoGvfD4+Dkrn+dHgzGpLUFI8JBkYTFhPuZhe
 
         $this->Security->setConfig('validatePost', false);
         $this->Security->setConfig('unlockedActions', ['decodeCsr', 'convertCertificate']);
-        
+
         $this->FormProtection->setConfig('validate', false);
         $this->FormProtection->setConfig('unlockedActions', ['decodeCsr', 'convertCertificate']);
     }
@@ -120,10 +120,11 @@ ZCFuv6ibYdWBLlxqd1EuQhfLcTlOBoGvfD4+Dkrn+dHgzGpLUFI8JBkYTFhPuZhe
                     ];
                 }
 
-                $decodedCsr = json_encode($result);
+                $decodedCsr = $result;
 
-                // echo $jsonOutput;
+                // debug($result);
                 // die;
+                $this->set(compact(['decodedCsr']));
             }
         }
 
