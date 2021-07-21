@@ -90,6 +90,7 @@ ZCFuv6ibYdWBLlxqd1EuQhfLcTlOBoGvfD4+Dkrn+dHgzGpLUFI8JBkYTFhPuZhe
         parent::beforeFilter($event);
 
         $this->Security->setConfig('validatePost', false);
+        $this->Security->setConfig('unlockedActions', ['decodeCsr', 'convertCertificate']);
     }
 
     public function index()
