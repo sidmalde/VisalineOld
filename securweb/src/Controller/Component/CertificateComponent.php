@@ -4,6 +4,8 @@
 
 namespace App\Controller\Component;
 
+
+use Cake\Core\Configure;
 use Cake\Controller\Component;
 use Cake\Controller\ComponentRegistry;
 use Cake\Datasource\Exception\PageOutOfBoundsException;
@@ -17,7 +19,7 @@ class CertificateComponent extends Component
 	//
 
 	var $opensslPath = '"C:/Program Files/OpenSSL-Win64/bin/openssl.exe"';
-	// var $opensslPath = 'openssl';
+	// var $linuxOpensslPath = 'openssl';
 
 	public static $mapping = [
 		'pem' => [
@@ -48,7 +50,13 @@ class CertificateComponent extends Component
 	var $outputCSR = '';
 	var $outputCSRData = [];
 
+	function contsruct()
+	{
+
+	}
+
 	function decodeCSR($csr = null) {
+		$this->opensslPath = Configure::read('CertificateTools.openssl');
 
 		if (empty($csr)) {
 			// Invalid Request - empty CSR
@@ -135,6 +143,8 @@ class CertificateComponent extends Component
 	}
 
 	function convertCertificateFormat($from, $to,$data) {
+		$this->opensslPath = Configure::read('CertificateTools.openssl');
+
 		$tmp = time().rand(0,99999);
 		$tmpOutPath = TMP.$tmp.".".$to;
 
@@ -149,23 +159,6 @@ class CertificateComponent extends Component
 		$output = shell_exec($cmd);
 
 		return $tmpOutPath;
-
-		/*if ($from == 'pem' && $to == 'pfx') {
-			$cmd = $this->opensslPath." ".sprintf(self::$mapping[$from][$to]['command'],TMP.$tmp.".".$to, $data['pfxkey']['tmp_name'], $data['pfxfile']['tmp_name'],$data['pfxkeypass'],$data['pfxkeypass']);
-		} elseif ($from == 'pem' && $to == 'p7b') {
-			$cmd = $this->opensslPath." ".sprintf(self::$mapping[$from][$to]['command'],$data['pemp7bfile']['tmp_name'], TMP.$tmp.".".$to);
-		} elseif ($from == 'pfx' && $to == 'pem') { // special cases
-			$cmd = $this->opensslPath." ".sprintf(self::$mapping[$from][$to]['command'],$data['pempfxfile']['tmp_name'], TMP.$tmp.".".$to,$data['pemkeypass'],$data['pemkeypass']);
-		} else {
-			//debug(TMP.$tmp);
-			$myFile = $data[self::$mapping[$from][$to]['files'][0]];
-			$cmd = $this->opensslPath." ".sprintf(self::$mapping[$from][$to]['command'],$myFile['tmp_name'],TMP.$tmp.".".$to);
-			//debug($cmd);
-		}
-
-		$output = shell_exec($cmd);
-		return TMP.$tmp.".".$to;*/
-
 	}
 
 	function filterCSR(\stdClass $csr){
