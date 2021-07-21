@@ -81,7 +81,14 @@ ZCFuv6ibYdWBLlxqd1EuQhfLcTlOBoGvfD4+Dkrn+dHgzGpLUFI8JBkYTFhPuZhe
     public function initialize(): void
     {
         $this->loadComponent('Certificate');
+        $this->loadComponent('Security');
+    }
 
+    public function beforeFilter(EventInterface $event)
+    {
+        parent::beforeFilter($event);
+
+        $this->Security->setConfig('validatePost', false);
     }
 
     public function index()
