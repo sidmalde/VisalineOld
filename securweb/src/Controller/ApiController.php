@@ -88,8 +88,7 @@ ZCFuv6ibYdWBLlxqd1EuQhfLcTlOBoGvfD4+Dkrn+dHgzGpLUFI8JBkYTFhPuZhe
     {
         // Blank func
         // ToDo fail gracefully
-        debug('INDEX');
-        die;
+        
     }
 
     public function decodeCsr()
