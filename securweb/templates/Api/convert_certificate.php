@@ -13,7 +13,7 @@ $this->layout = false;
 
 ?>
 <body>
-    <h1>Decode CSR</h1>
+    <h1>Convert Certificate Format</h1>
 
     <div class="form-convert-certificate">
 	    <?= $this->Form->create(null, ['enctype' => 'multipart/form-data']); ?>
