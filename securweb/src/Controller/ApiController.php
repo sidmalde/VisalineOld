@@ -83,6 +83,7 @@ ZCFuv6ibYdWBLlxqd1EuQhfLcTlOBoGvfD4+Dkrn+dHgzGpLUFI8JBkYTFhPuZhe
     {
         $this->loadComponent('Certificate');
         $this->loadComponent('Security');
+        $this->loadComponent('FormProtection');
     }
 
     public function beforeFilter(EventInterface $event)
@@ -91,6 +92,9 @@ ZCFuv6ibYdWBLlxqd1EuQhfLcTlOBoGvfD4+Dkrn+dHgzGpLUFI8JBkYTFhPuZhe
 
         $this->Security->setConfig('validatePost', false);
         $this->Security->setConfig('unlockedActions', ['decodeCsr', 'convertCertificate']);
+        
+        $this->FormProtection->setConfig('validate', false);
+        $this->FormProtection->setConfig('unlockedActions', ['decodeCsr', 'convertCertificate']);
     }
 
     public function index()
@@ -102,8 +106,9 @@ ZCFuv6ibYdWBLlxqd1EuQhfLcTlOBoGvfD4+Dkrn+dHgzGpLUFI8JBkYTFhPuZhe
 
     public function decodeCsr()
     {
-
         if ($this->request->is('post')) {
+// debug($this->request->getParam('action'));
+// die;
             $formData = $this->request->getData();
             if (!empty($formData['csr'])) {
                 $result = $this->Certificate->decodeCSR($formData['csr']);
