@@ -8,6 +8,7 @@ use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\Http\Response;
 use Cake\View\Exception\MissingTemplateException;
+use Cake\Event\EventInterface;
 
 
 use App\Controller\Component\CertificateComponent;
@@ -115,8 +116,8 @@ ZCFuv6ibYdWBLlxqd1EuQhfLcTlOBoGvfD4+Dkrn+dHgzGpLUFI8JBkYTFhPuZhe
 
                 $decodedCsr = json_encode($result);
 
-                echo $jsonOutput;
-                die;
+                // echo $jsonOutput;
+                // die;
             }
         }
 
