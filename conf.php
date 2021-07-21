@@ -1,7 +1,7 @@
 <?php
 
-	$dbhost = '213.171.200.62';
-	$dbuser = 'visaline';
-	$dbpass = 'Ferrari1';
+	$dbhost = '127.0.0.1';
+	$dbuser = 'sidmalde';
+	$dbpass = 'Kh1m@sia';
 
 ?>
