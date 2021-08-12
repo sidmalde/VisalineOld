@@ -29,6 +29,10 @@ $this->layout = false;
 ?>
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Decode CSR</title>
+    <?= $this->Html->css(['core']) ?>
+</head>
 <body>
     <h1>Decode CSR</h1>
 
