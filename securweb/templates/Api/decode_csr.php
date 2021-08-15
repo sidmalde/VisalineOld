@@ -38,11 +38,6 @@ $this->layout = false;
 
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h1>Decode CSR</h1>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-6">
                 <?= $this->Form->create(null); ?>
                 <?= $this->Form->input('csr', ['type' => 'textarea', 'rows' => 15, 'cols' => 75]); ?>
