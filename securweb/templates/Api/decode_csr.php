@@ -42,45 +42,47 @@ $this->layout = false;
             <?= $this->Form->input('csr', ['type' => 'textarea', 'rows' => 15, 'cols' => 75]); ?>
             <br>
             <br>
-            <?= $this->Form->submit('Decode CSR'); ?>
+            <?= $this->Form->submit('Decode CSR', ['class' => 'btn btn-default']); ?>
             <?= $this->Form->end(); ?>
         </div>
         <div class="col-md-6">
             <?php if(!empty($decodedCsr)): ?>
                 <div class="decoded-csr-block">
-                    <table>
-                        <tr>
-                            <th>Common name</th>
-                            <td><?= @$decodedCsr->CommonName; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Key Algorithm</th>
-                            <td><?= @$decodedCsr->KeyAlgorithm; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Key Size</th>
-                            <td><?= @$decodedCsr->KeySize; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Organization</th>
-                            <td><?= @$decodedCsr->Organization; ?></td>
-                        </tr>
-                        <tr>
-                            <th>OU</th>
-                            <td><?= @$decodedCsr->OrganizationUnit; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Locality</th>
-                            <td><?= @$decodedCsr->Locality; ?></td>
-                        </tr>
-                        <tr>
-                            <th>State</th>
-                            <td><?= @$decodedCsr->State; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Country</th>
-                            <td><?= @$decodedCsr->Country; ?></td>
-                        </tr>
+                    <table class="table table-bordered table-hover">
+                        <tbody>
+                            <tr>
+                                <th>Common name</th>
+                                <td><?= @$decodedCsr->CommonName; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Key Algorithm</th>
+                                <td><?= @$decodedCsr->KeyAlgorithm; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Key Size</th>
+                                <td><?= @$decodedCsr->KeySize; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Organization</th>
+                                <td><?= @$decodedCsr->Organization; ?></td>
+                            </tr>
+                            <tr>
+                                <th>OU</th>
+                                <td><?= @$decodedCsr->OrganizationUnit; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Locality</th>
+                                <td><?= @$decodedCsr->Locality; ?></td>
+                            </tr>
+                            <tr>
+                                <th>State</th>
+                                <td><?= @$decodedCsr->State; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Country</th>
+                                <td><?= @$decodedCsr->Country; ?></td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             <?php endif; ?>
