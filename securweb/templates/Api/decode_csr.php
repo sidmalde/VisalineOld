@@ -48,7 +48,7 @@ $this->layout = false;
                 <?= $this->Form->input('csr', ['type' => 'textarea', 'rows' => 15, 'cols' => 75]); ?>
                 <br>
                 <br>
-                <?= $this->Form->submit('Decode CSR', ['class' => 'btn btn-primary']); ?>
+                <?= $this->Form->submit('Decode CSR', ['class' => 'btn btn-success']); ?>
                 <?= $this->Form->end(); ?>
             </div>
             <div class="col-md-6">
